@@ -40,11 +40,6 @@ public class MemberManager {
 		return;
 	}
 
-	public void printAllMember() {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void searchId() {
 		System.out.print("검색할 아이디를 입력하세요 : ");
 		String id = sc.next();
@@ -131,22 +126,87 @@ public class MemberManager {
 	}
 
 	public void updateName() {
-		// TODO Auto-generated method stub
+		System.out.print("수정할 회원의 아이디를 입력하세요 : ");
+		String id = sc.next();
+		// 비밀번호 변경과 동일함 (수정할 정보는 변경할 이름을 입력받아 setter로 변경한다.)
 
+		for (int i = 0; i < MemberManager.ctn; i++) {
+			if (id.equals(m[i].getUserId())) {
+				// search방식과 동일하게 검색하여 해당 인덱스 찾은 후
+				System.out.print("변경할 이름을 입력하세요 : ");
+				m[i].setUserName(sc.next());
+				// 해당 배열 인덱스 객체의 setter를 이용하여 비밀번호 변경
+				System.out.println("패스워드 수정이 완료되었습니다 ");
+				return;
+				// "패스워드 수정이 완료되었습니다 출력 후 메인메뉴로 돌아감.
+			} else {
+				System.out.println("수정할 회원이 존재하지 않습니다.");
+				return;
+				// 수정하려는 회원이 없는 경우 "수정할 회원이 존재하지 않습니다." 출력 후 메인 메뉴로 돌아감.
+			}
+
+		}
 	}
 
 	public void updateEmail() {
-		// TODO Auto-generated method stub
+		System.out.print("수정할 회원의 아이디를 입력하세요 : ");
+		String id = sc.next();
+		// 비밀번호 변경과 동일함 (수정할 정보는 변경할 이메일 주소를 입력받아 setter로 변경한다.)
 
+		for (int i = 0; i < MemberManager.ctn; i++) {
+			if (id.equals(m[i].getUserId())) {
+				// search방식과 동일하게 검색하여 해당 인덱스 찾은 후
+				System.out.print("변경할 이메일을 입력하세요 : ");
+				m[i].setEmail(sc.next());
+				// 해당 배열 인덱스 객체의 setter를 이용하여 비밀번호 변경
+				System.out.println("패스워드 수정이 완료되었습니다 ");
+				return;
+				// "패스워드 수정이 완료되었습니다 출력 후 메인메뉴로 돌아감.
+			} else {
+				System.out.println("수정할 회원이 존재하지 않습니다.");
+				return;
+				// 수정하려는 회원이 없는 경우 "수정할 회원이 존재하지 않습니다." 출력 후 메인 메뉴로 돌아감.
+			}
+
+		}
 	}
 
 	public void deleteOne() {
-		// TODO Auto-generated method stub
+		System.out.println("탈퇴할 회원의 아이디를 입력하세요 : ");
+		String id = sc.next();
+		int button = 0;
+		// "탈퇴할 회원의 아이디를 입력하세요 : " 출력 후 아이디 입력 받음
+		for (int i = 0; i < MemberManager.ctn; i++) {
+			if (id.equals(m[i].getUserId())) {
+				button = 1;
+			}
+			// 아이디로 탈퇴할 회원의 인덱스를 찾은 후
+			if (button != 0 && i < MemberManager.ctn - 1) {
+				m[i] = m[i + 1];
+				// 다음 인덱스 객체(인덱스+1)의 정보를 한칸씩 앞으로 이동시킴
+			}
+		}
+		if (button == 0)
+			System.out.println("삭제할 회원 정보가 존재하지 않습니다.");
+		// 탈퇴할 회원이 없는 경우 "삭제할 회원 정보가 존재하지 않습니다." 출력
+		else
+			MemberManager.ctn -= 1;
+		// 삭제가 성공적으로 된 경우 ctn을 1 감소시킴
 
 	}
 
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < MemberManager.ctn; i++) {
+			m[i].setAge(0);
+			m[i].setEmail(null);
+			m[i].setUserId(null);
+			m[i].setGender(' ');
+			m[i].setUserName(null);
+			m[i].setUserPwd(null);
+		}
+		// 0~ctn까지의 모든 인덱스의 모든 setter를 이용하여 초기값으로 변경하고
+		MemberManager.ctn = 0;
+		// ctn 값을 다시 0으로 변경시킴
 
 	}
 
@@ -158,4 +218,19 @@ public class MemberManager {
 		System.out.println("성별 : " + m.getGender());
 		System.out.println("이메일 : " + m.getEmail());
 	}
+
+	public void printAllMember() {
+		for (int i = 0; i < MemberManager.ctn; i++) {
+			System.out.println("id : " + m[i].getUserId());
+			System.out.println("pw : " + m[i].getUserPwd());
+			System.out.println("이름 : " + m[i].getUserName());
+			System.out.println("나이 : " + m[i].getAge());
+			System.out.println("성별 : " + m[i].getGender());
+			System.out.println("이메일 : " + m[i].getEmail());
+			
+		}
+		//반복문을 이용하여 ctn까지의 모든 인덱스의 객체 정보를 getter를 통해 출력시키는 메소드
+
+	}
+
 }

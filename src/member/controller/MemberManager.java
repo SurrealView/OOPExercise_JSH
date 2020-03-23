@@ -57,4 +57,14 @@ public class MemberManager {
 		
 	}
 
+	public void deleteOne() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

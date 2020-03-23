@@ -30,13 +30,13 @@ public class MemberMenu {
 				mm.insertMember();
 				break;
 			case 2:
-				mm.searchMemberMenu();
+				searchMemberMenu();
 				break;
 			case 3:
-				mm.updateMemberMenu();
+				updateMemberMenu();
 				break;
 			case 4:
-				mm.deleteMemberMenu();
+				deleteMemberMenu();
 				break;
 			case 5:
 				mm.printAllMember();

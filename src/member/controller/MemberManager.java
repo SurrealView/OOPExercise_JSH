@@ -15,8 +15,29 @@ public class MemberManager {
 	}
 
 	public void insertMember() {
-		// TODO Auto-generated method stub
-
+		System.out.print("아이디 입력 : ");
+		String id = sc.next();
+		System.out.print("패스워드 입력 : ");
+		String pw = sc.next();
+		System.out.print("이름 입력 : ");
+		String name = sc.next();
+		System.out.print("나이 입력 : ");
+		int age = sc.nextInt();
+		System.out.print("성별 입력 : ");
+		char gender = sc.next().charAt(0);
+		System.out.print("이메일 입력 :");
+		String email = sc.next();		
+		// 키보드로 아이디, 패스워드, 이름, 나이, 성별, 이메일 입력
+		
+		m[MemberManager.ctn] = new Member(id,pw,name,age,gender,email);
+		// 입력 받은 정보를 Member클래스의 매개변수 있는 생성자를 사용해 객체 생성 후 배열에 저장
+		
+		MemberManager.ctn++;
+		// 인덱스와 회원수 증가시킴
+		
+		System.out.println("입력이 완료되었습니다. 메인 메뉴로 돌아갑니다.");
+		// "입력이 완료되었습니다. 메인 메뉴로 돌아갑니다." 출력 후 메인메뉴로 돌아감
+		return;
 	}
 
 	public void searchMemberMenu() {

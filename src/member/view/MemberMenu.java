@@ -23,7 +23,7 @@ public class MemberMenu {
 			System.out.println("5. 회원 정보 출력");
 			System.out.println("9. 종료");
 			System.out.println("====================================");
-			System.out.println("메뉴 번호를 입력하세요 :");
+			System.out.print("메뉴 번호를 입력하세요 : ");
 			int button = sc.nextInt();
 			switch (button) {
 			case 1:
@@ -45,8 +45,43 @@ public class MemberMenu {
 				System.out.println("프로그램을 종료합니다.");
 				return;
 			default:
+				System.out.println("다시 입력하세요.");
+				break;
 			}
 		}
-
 	}
+
+	public void searchMemberMenu() {
+
+		while (true) {
+			System.out.println("========== 회원 정보 검색 ==========");
+			System.out.println("1. 아이디로 검색하기");
+			System.out.println("2. 이름으로 검색하기");
+			System.out.println("3. 이메일로 검색하기");
+			System.out.println("9. 메인메뉴로");
+			System.out.println("====================================");
+			System.out.print("메뉴 번호를 입력하세요 : ");
+			int button = sc.nextInt();
+			switch (button) {
+			case 1:
+				mm.searchId();
+				break;
+			case 2:
+				mm.searchName();
+				break;
+			case 3:
+				mm.searchEmail();
+				break;
+			case 9:
+				System.out.println("메인메뉴로 이동합니다.");
+				return;
+			default:
+				System.out.println("다시 입력하세요.");
+				break;
+			}
+		}
+	}
+
+
+
 }

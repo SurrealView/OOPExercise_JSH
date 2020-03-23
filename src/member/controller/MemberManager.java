@@ -106,7 +106,27 @@ public class MemberManager {
 	}
 
 	public void updatePwd() {
-		// TODO Auto-generated method stub
+		System.out.print("수정할 회원의 아이디를 입력하세요 : ");
+		String id = sc.next();
+		// "수정할 회원의 아이디를 입력하세요 : " 출력 후 키보드로 아이디 입력 받음
+
+		for (int i = 0; i < MemberManager.ctn; i++) {
+			if (id.equals(m[i].getUserId())) {
+				// search방식과 동일하게 검색하여 해당 인덱스 찾은 후
+				System.out.print("변경할 비밀번호를 입력하세요 : ");
+				m[i].setUserPwd(sc.next());
+				// 변경할 비밀번호를 입력 받음
+				// 해당 배열 인덱스 객체의 setter를 이용하여 비밀번호 변경
+				System.out.println("패스워드 수정이 완료되었습니다 ");
+				return;
+				// "패스워드 수정이 완료되었습니다 출력 후 메인메뉴로 돌아감.
+			} else {
+				System.out.println("수정할 회원이 존재하지 않습니다.");
+				return;
+				// 수정하려는 회원이 없는 경우 "수정할 회원이 존재하지 않습니다." 출력 후 메인 메뉴로 돌아감.
+			}
+
+		}
 
 	}
 

@@ -135,6 +135,7 @@ public class MemberManager {
 		int exist = 0;
 		for (int i = 0; i < MemberManager.ctn; i++) {
 			if (id.equals(m[i].getUserId())) {
+				
 				// search방식과 동일하게 검색하여 해당 인덱스 찾은 후
 				System.out.print("변경할 이름을 입력하세요 : ");
 				m[i].setUserName(sc.next());

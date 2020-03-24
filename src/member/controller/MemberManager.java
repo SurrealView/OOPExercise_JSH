@@ -200,7 +200,7 @@ public class MemberManager {
 			m[i].setAge(0);
 			m[i].setEmail(null);
 			m[i].setUserId(null);
-			m[i].setGender(' ');
+			m[i].setGender('\u0000');
 			m[i].setUserName(null);
 			m[i].setUserPwd(null);
 		}
